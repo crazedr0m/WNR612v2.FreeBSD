@@ -44,3 +44,14 @@ device          arswitch
 device		hwpmc_mips24k
 device		hwpmc
 
+device		wlan
+device		wlan_wep        # 802.11 WEP support
+device		wlan_ccmp       # 802.11 CCMP support
+device		wlan_tkip       # 802.11 TKIP support
+device		wlan_xauth	# 802.11 hostap support
+
+# Atheros wireless NICs
+device		ath             # Atheros interface support
+device		ath_pci		# Atheros PCI/Cardbus bus
+device		ath_hal
+device		ath_rate_sample

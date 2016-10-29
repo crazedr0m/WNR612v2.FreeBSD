@@ -40,6 +40,11 @@ hint.pcib.0.bus.0.0.0.ath_fixup_size=4096
 # ath
 hint.ath.0.eeprom_firmware="pcib.0.bus.0.0.0.eeprom_firmware"
 
+# openwrt
+#[   12.420000] ieee80211 phy0: Atheros AR9285 Rev:2 mem=0xb0000000, irq=40
+# netgear firmware
+#HAL supports ANTENNA_DIVERSITY<6>wifi0: Atheros 9285: mem=0x10000000, irq=48 hw_base=0xb0000000
+
 # from openwrt boot log
 #[    0.720000] 6 cmdlinepart partitions found on MTD device spi0.0
 #[    0.720000] Creating 6 MTD partitions on "spi0.0":
@@ -53,6 +58,19 @@ hint.ath.0.eeprom_firmware="pcib.0.bus.0.0.0.eeprom_firmware"
 #[    0.780000] 0x0000003f0000-0x000000400000 : "art"
 #[    0.780000] 0x000000050000-0x0000003f0000 : "firmware"
 
+# from netgear official firmware boot log
+#9 cmdlinepart partitions found on MTD device ar7240-nor0
+#Creating 9 MTD partitions on "ar7240-nor0":
+#0x00000000-0x00040000 : "u-boot"
+#0x00040000-0x00050000 : "u-boot-env"
+#0x00050000-0x003a0000 : "rootfs"
+#0x003a0000-0x003b0000 : "config"
+#0x003b0000-0x003d0000 : "language_table"
+#0x003d0000-0x003e0000 : "pot"
+#0x003e0000-0x003f0000 : "traffic_meter"
+#0x003f0000-0x00400000 : "ART"
+#0x00050040-0x003a0000 : "mount_fs"
+
 hint.map.0.at="flash/spi0"
 hint.map.0.start=0x00000000
 hint.map.0.end=  0x00040000
@@ -65,11 +83,17 @@ hint.map.1.end=  0x00050000       # 64k u-boot-env
 hint.map.1.name="u-boot-env"
 hint.map.1.readonly=1
 
-hint.map.1.at="flash/spi0"
-hint.map.1.start=0x00050000
-hint.map.1.end=  0x003f0000
-hint.map.1.name="u-boot-env"
-hint.map.1.readonly=1
+hint.map.2.at="flash/spi0"
+hint.map.2.start=0x00050000
+hint.map.2.end=  0x003a0000
+hint.map.2.name="rootfs"
+hint.map.2.readonly=1
+
+hint.map.3.at="flash/spi0"
+hint.map.3.start=0x003a0000
+hint.map.3.end=  0x003b0000
+hint.map.3.name="config"
+hint.map.3.readonly=1
 
 
 # GPIO specific configuration block

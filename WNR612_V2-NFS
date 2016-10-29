@@ -8,6 +8,7 @@ options         NFSLOCKD                # Network Lock Manager
 options         NFS_ROOT                # NFS-root
 options         NFS_DEBUG
 
+
 options         BOOTP                   # Поддержка BOOTP
 options         BOOTP_NFSROOT
 options         BOOTP_NFSV3
